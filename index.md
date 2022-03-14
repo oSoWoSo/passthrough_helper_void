@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+---
+layout: default
+title: vbm (fork) GPU passthrough helper for Void Linux
+canonical_url: 'https://github.com/pavolelsig/passthrough_helper_fedora'
+---
 
-You can use the [editor on GitHub](https://github.com/oSoWoSo/passthrough_helper_void/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# Passthrough helper void
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is a simple script that makes your system ready to run a KVM/QEMU virtual machine with its own GPU.
 
-### Markdown
+2 GPUs are needed. One of the GPUs can be an iGPU.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Instructions:
 
-```markdown
-Syntax highlighted code block
+# sudo su
+# chmod +x gpu_passthrough.sh
+# ./gpu_passthrough.sh
+after script
+# exit
 
-# Header 1
-## Header 2
-### Header 3
+- Detected cpu: Amd else using Intel
+- Detected editor: nano, micro else using vim
+- Export "#Add to your GRUB_CMDLINE_LINUX_DEFAULT= amd_iommu=on rd.driver.pre=vfio-pci kvm.ignore_msrs=1" line to grub, so you can easily copy in editor.
+- Auto download and extract latest OVMF from kraxel.org
 
-- Bulleted
-- List
+For instructions go to https://www.youtube.com/watch?v=Cssen5-QCk0&t=263s
 
-1. Numbered
-2. List
+Source of vfio-pci-override-vga.sh is http://vfio.blogspot.com/2015/05/
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/oSoWoSo/passthrough_helper_void/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Used script from https://github.com/pavolelsig/passthrough_helper_fedora
