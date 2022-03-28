@@ -1,6 +1,6 @@
 ---
 layout: default
-title: vbm (fork) GPU passthrough helper for Void Linux
+title: GPU passthrough helper for Void Linux
 canonical_url: 'https://github.com/pavolelsig/passthrough_helper_fedora'
 ---
 
